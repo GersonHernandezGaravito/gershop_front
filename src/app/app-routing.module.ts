@@ -17,7 +17,7 @@ import { MantenimientoPerfilService } from './service/mantenimiento-perfil.servi
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/index',
+    redirectTo: '/inicio',
     pathMatch: 'full'
   },
   {
