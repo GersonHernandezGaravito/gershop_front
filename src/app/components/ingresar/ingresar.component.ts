@@ -28,7 +28,7 @@ export class IngresarComponent implements OnInit {
         localStorage.setItem('idU', res.id);
         localStorage.setItem('rol', res.rol);
         localStorage.setItem('estilo', res.estilo);
-        window.location.replace('/inicio');
+        window.location.replace('/index');
         //this.router.navigate(['/inicio']);
       },
       err => {
