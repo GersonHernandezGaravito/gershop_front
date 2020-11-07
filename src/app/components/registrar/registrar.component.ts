@@ -31,7 +31,7 @@ export class RegistrarComponent implements OnInit {
         localStorage.setItem('token', res.token);
         localStorage.setItem('idU', res.id);
         localStorage.setItem('rol', res.rol);
-        this.router.navigate(['/privado'])
+        window.location.replace('/index');
       },
       err => console.log(err)
     )

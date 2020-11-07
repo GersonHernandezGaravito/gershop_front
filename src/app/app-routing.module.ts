@@ -32,40 +32,40 @@ const routes: Routes = [
   {
     path: 'usuarios',
     component: MantenimientoUsuariosComponent,
-    //canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'usuarios/:id',
     component: MantenimientoUsuariosDetallesComponent,
-    //canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },{
     path: 'menus',
     component: MantenimientoMenusComponent,
-    //canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'menus/:id',
     component: MantenimientoMenusDetallesComponent,
-    //canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'menus/new',
     component: MantenimientoMenusDetallesComponent,
-    //canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'perfil',
     component: MantenimientoPerfilComponent,
-    //canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },{
     path: 'perfil/:id',
     component: MantenimientoPerfilDetalleComponent,
-    //canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'perfil/new',
     component: MantenimientoPerfilDetalleComponent,
-    //canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'registrar',
@@ -78,7 +78,7 @@ const routes: Routes = [
   {
     path: 'estilos',
     component: EstilosComponent,
-    //canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   }
 ];
 
