@@ -1,0 +1,36 @@
+<div class="list row">
+    <div class="col-md-8"> 
+      <div class="input-group mb-3">
+          <a class="badge badge-success" (click)="setNew()">
+          Crear
+        </a>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h4>Lista de Menus</h4>
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let p of perfil; let i = index" [class.active]="i == idActual" (click)="setSeleccionado(p, i)" >
+          {{ perfil[i].nombreRol }}
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <div *ngIf="perfilActual">
+        <h4>MENUS</h4>
+        <div>
+            <label><strong>ID:&nbsp;&nbsp;&nbsp;&nbsp;</strong></label> {{ perfil[idActual]._id }}
+          </div>
+        <div>
+          <label><strong>Rol:&nbsp;&nbsp;&nbsp;&nbsp;</strong></label> {{ perfil[idActual].nombreRol }}
+        </div>
+          <a class="badge badge-warning" routerLink="/perfil/{{ perfil[idActual]._id }}">
+          Editar
+        </a>
+      </div>
+  
+      <div *ngIf="!perfilActual">
+        <br />
+        <p>Seleccione un menu...</p>
+      </div>
+    </div>
+  </div>

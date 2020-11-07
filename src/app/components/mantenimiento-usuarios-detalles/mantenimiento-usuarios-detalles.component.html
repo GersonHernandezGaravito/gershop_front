@@ -1,0 +1,38 @@
+<div style="width: 400px; margin: auto;">
+    <div *ngIf="usuarioActual" class="edit-form">
+      <h4>USUARIO</h4>
+      <form>
+        <div class="form-group">
+          <label for="nombre">Nombre de Usuario</label>
+          <input type="text" class="form-control" id="nombreU" [(ngModel)]="usuarioActual.nombreU" name="nombreU" />
+        </div>
+        <div class="form-group">
+          <label for="correo">Correo</label>
+          <input type="text" class="form-control" id="correo" [(ngModel)]="usuarioActual.correo" name="correo"/>
+        </div>
+        
+
+        <div class="form-group">
+          <label for="codigoRol">Rol</label>
+          <select class="form-control" id="codigoRol" [(ngModel)]="usuarioActual.codigoRol"  name="codigoRol"> 
+            <option value="2">administrador</option>
+            <option value="1">usuario</option>
+          </select>
+        </div>
+      </form>
+  
+      <button class="badge badge-danger mr-2" (click)="eliminar()">
+        Eliminar
+      </button>
+  
+      <button type="submit" class="badge badge-success" (click)="actualizar()">
+        Modificar
+      </button>
+      <p>{{ mensaje }}</p>
+    </div>
+  
+    <div *ngIf="!usuarioActual">
+      <br />
+      <p>Sin Acceso al Usuario</p>
+    </div>
+  </div>

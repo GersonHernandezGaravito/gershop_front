@@ -1,0 +1,45 @@
+<div class="list row">
+    <!--div class="col-md-8">  PARA AGREGAR BOTON DE INSERTAR
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Search by title" [(ngModel)]="title" />
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button" (click)="searchTitle()">
+            Search
+          </button>
+        </div>
+      </div>
+    </div-->
+    <div class="col-md-6">
+      <h4>Lista de Estilos</h4>
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let est of estilos; let i = index" [class.active]="i == idActual" (click)="setSeleccionado(est, i)" >
+          {{ estilos[i].estilo }}
+        </li>
+      </ul>
+  
+      <!--button class="m-3 btn btn-sm btn-danger" (click)="removeAllTutorials()">
+        Remove All
+      </button-->
+    </div>
+    <div class="col-md-6">
+      <div *ngIf="estiloActual">
+        <h4>Estilo</h4>
+        <div>
+          <label><strong>Nombre de Estilo:&nbsp;&nbsp;&nbsp;&nbsp;</strong></label> {{ estilos[idActual].estilo }}
+        </div>
+        <div>
+          <label><strong>Imagen:&nbsp;&nbsp;&nbsp;&nbsp;</strong></label>
+          <img src="{{ estilos[idActual].path }}" alt="{{ estilos[idActual].estilo }}" width="460" height="345">
+        </div>
+
+        <button type="submit" class="badge badge-success" (click)="elegirEstilo()">
+          Modificar
+        </button>
+      </div>
+  
+      <div *ngIf="!estiloActual">
+        <br />
+        <p>Seleccione un estilo...</p>
+      </div>
+    </div>
+  </div>

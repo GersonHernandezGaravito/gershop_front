@@ -1,0 +1,56 @@
+<div class="list row">
+    <!--div class="col-md-8">  PARA AGREGAR BOTON DE INSERTAR
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Search by title" [(ngModel)]="title" />
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button" (click)="searchTitle()">
+            Search
+          </button>
+        </div>
+      </div>
+    </div-->
+    <div class="col-md-6">
+      <h4>Lista de Usuarios</h4>
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let usu of usuarios; let i = index" [class.active]="i == idActual" (click)="setSeleccionado(usu, i)" >
+          {{ usuarios[i].nombreU }}
+        </li>
+      </ul>
+  
+      <!--button class="m-3 btn btn-sm btn-danger" (click)="removeAllTutorials()">
+        Remove All
+      </button-->
+    </div>
+    <div class="col-md-6">
+      <div *ngIf="usuarioActual">
+        <h4>Usuario</h4>
+        <div>
+          <label><strong>Nombre de Usuario:&nbsp;&nbsp;&nbsp;&nbsp;</strong></label> {{ usuarios[idActual].nombreU }}
+        </div>
+        <div>
+          <label><strong>Correo:&nbsp;&nbsp;&nbsp;&nbsp;</strong></label>
+          {{ usuarios[idActual].correo }}
+        </div>
+        <div *ngIf="usuarios[idActual].codigoRol == 1">
+          <label><strong>Rol:&nbsp;&nbsp;&nbsp;&nbsp;</strong></label>
+          usuario
+        </div>
+        <div *ngIf="usuarios[idActual].codigoRol == 2">
+          <label><strong>Rol:&nbsp;&nbsp;&nbsp;&nbsp;</strong></label>
+          administrador
+        </div>
+        <div>
+          <label><strong>Ultima Modificacion:&nbsp;&nbsp;&nbsp;&nbsp;</strong></label>
+          {{ usuarios[idActual].updatedAt }}
+        </div>
+        <a class="badge badge-warning" routerLink="/usuarios/{{ usuarios[idActual]._id }}">
+          Editar
+        </a>
+      </div>
+  
+      <div *ngIf="!usuarioActual">
+        <br />
+        <p>Seleccione un usuario...</p>
+      </div>
+    </div>
+  </div>

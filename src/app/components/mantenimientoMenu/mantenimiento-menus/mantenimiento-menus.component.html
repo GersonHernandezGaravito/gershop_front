@@ -1,0 +1,49 @@
+<div class="list row">
+    <div class="col-md-8"> 
+      <div class="input-group mb-3">
+          <a class="badge badge-warning" (click)="setNew()">
+          Crear
+        </a>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h4>Lista de Menus</h4>
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let men of menus; let i = index" [class.active]="i == idActual" (click)="setSeleccionado(men, i)" >
+          {{ menus[i].menu }}
+        </li>
+      </ul>
+  
+      <!--button class="m-3 btn btn-sm btn-danger" (click)="removeAllTutorials()">
+        Remove All
+      </button-->
+    </div>
+    <div class="col-md-6">
+      <div *ngIf="menuActual">
+        <h4>MENUS</h4>
+        <div>
+            <label><strong>ID:&nbsp;&nbsp;&nbsp;&nbsp;</strong></label> {{ menus[idActual]._id }}
+          </div>
+        <div>
+          <label><strong>Menu:&nbsp;&nbsp;&nbsp;&nbsp;</strong></label> {{ menus[idActual].menu }}
+        </div>
+        <div>
+          <label><strong>Padre:&nbsp;&nbsp;&nbsp;&nbsp;</strong></label> {{ menus[idActual].padre }}
+        </div>
+        <div>
+          <label><strong>link:&nbsp;&nbsp;&nbsp;&nbsp;</strong></label> {{ menus[idActual].link }}
+        </div>
+        <div>
+            <label><strong>Permiso:&nbsp;&nbsp;&nbsp;&nbsp;</strong></label> {{ menus[idActual].permiso }}
+        </div>
+          <a class="badge badge-warning" routerLink="/menus/{{ menus[idActual]._id }}">
+          Editar
+        </a>
+      </div>
+  
+      <div *ngIf="!menuActual">
+        <br />
+        <p>Seleccione un menu...</p>
+      </div>
+    </div>
+  </div>

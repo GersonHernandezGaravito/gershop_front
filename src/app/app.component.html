@@ -1,0 +1,99 @@
+
+<div *ngIf= "estilo == '0'">
+<link rel='stylesheet' href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cerulean/bootstrap.min.css">
+</div>
+<div *ngIf= "estilo == '1'">
+  <link rel='stylesheet' href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cyborg/bootstrap.min.css">
+</div>
+<div *ngIf= "estilo == '2'">
+  <link rel='stylesheet' href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/superhero/bootstrap.min.css">
+</div>
+<div *ngIf= "estilo == '3'">
+  <link rel='stylesheet' href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/sketchy/bootstrap.min.css">
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" routerLink="/publico">GerShop</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+    <ul class="navbar-nav mr-auto">
+        
+      
+    </ul>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" *ngIf="authService.comprobarIngreso()">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown" *ngFor="let menu of modeloOrden; let i = index" dropdown>
+        <div  *ngFor="let menuM of modeloMenu; let j = index">
+          <div *ngIf="modeloOrden[i].id==modeloMenu[j]._id">
+            <div *ngIf="modeloOrden[i].hijos== ''">
+              <a class="nav-link" routerLink="{{modeloMenu[j].link}}" routerLinkActive="active">{{modeloMenu[j].menu}}</a>
+            </div>  
+            <div *ngIf="modeloOrden[i].hijos!= ''">
+              <a dropdownToggle class="nav-link dropdown-toggle"  routerLink={{modeloMenu[j].link}} id={{modeloOrden[i].id}} data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{modeloMenu[j].menu}}
+              </a>
+            </div>  
+          </div>
+        </div> 
+        
+        <ul *dropdownMenu class="dropdown-menu">
+          <div *ngFor="let avhijo of modeloOrden[i].hijos; let k = index">
+            <div  *ngFor="let menuM of modeloMenu; let j = index">
+              <div *ngIf="modeloOrden[i].hijos[k]==modeloMenu[j]._id">
+                <div *ngIf="modeloMenu[j].permiso <= rol">
+                  <a class="nav-link" routerLink={{modeloMenu[j].link}} routerLinkActive="active">{{modeloMenu[j].menu}}</a>
+                </div>
+              </div>
+            </div>         
+          </div>
+        </ul>
+        
+      </li>
+
+    </ul>
+    <!--form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form-->
+    <ng-container class="nav-item">
+      <a class="nav-link" style="cursor: pointer;" (click)="authService.cerrarSesion()">Salir</a>
+    </ng-container>
+
+  </div>
+  <ng-container *ngIf="!authService.comprobarIngreso();">
+      <a class="nav-link" routerLink="/ingresar" routerLinkActive="active">Ingresar<span class="sr-only">(current)</span></a>
+      <a class="nav-link" routerLink="/registrar" routerLinkActive="active">Registrar</a>
+  </ng-container>
+
+  <!--div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div *ngFor="let menu2 of modeloMenu; let j = index">
+          <ul *dropdownMenu class="dropdown-menu" >
+          <a class="dropdown-item" href="#" >{{modeloMenu[j].menu}}</a>
+          </ul> 
+        </div>
+
+
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div-->
+  
+</nav>
+
+
+
+
+<!--a *ngFor="let menu of modeloMenu; let i = index" mat-list-item routerLinkActive="active-list-item"></a>
+
+
+<div class="langBox" *ngFor="let menu of modeloMenu; let i = index">
+  <p>{{modeloMenu[i].menu}}</p>
+</div-->
+
+<div class="container p-5">
+  <router-outlet></router-outlet>
+</div>
+
