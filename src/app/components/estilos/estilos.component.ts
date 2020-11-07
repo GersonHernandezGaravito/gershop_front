@@ -78,7 +78,7 @@ export class EstilosComponent implements OnInit {
           localStorage.removeItem('estilo');
           localStorage.setItem('estilo', this.usuarioActual.codigoEstilo);
           //this.router.navigate(['/inicio']); 
-          window.location.replace('/inicio');
+          window.location.replace('/index');
         },
         err => {
           console.log(err);
