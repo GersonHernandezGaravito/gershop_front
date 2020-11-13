@@ -13,6 +13,7 @@ import { EstilosComponent } from "./components/estilos/estilos.component";
 import { AuthGuard } from "./auth.guard";
 import { MantenimientoPerfilComponent } from './components/mantenimientoPerfil/mantenimiento-perfil/mantenimiento-perfil.component'
 import { MantenimientoPerfilDetalleComponent } from './components/mantenimientoPerfil/mantenimiento-perfil-detalle/mantenimiento-perfil-detalle.component'
+import { OrdenarCompraComponent } from './components/ordenar-compra/ordenar-compra.component'
 import { MantenimientoPerfilService } from './service/mantenimiento-perfil.service';
 const routes: Routes = [
   {
@@ -27,6 +28,11 @@ const routes: Routes = [
   {
     path: 'inicio',
     component: AccesoprivadoComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'ordenar',
+    component: OrdenarCompraComponent,
     canActivate: [AuthGuard]
   },
   {
