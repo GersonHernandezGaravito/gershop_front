@@ -25,7 +25,10 @@ import { MantenimientoMenusComponent } from './components/mantenimientoMenu/mant
 import { MantenimientoMenusDetallesComponent } from './components/mantenimientoMenu/mantenimiento-menus-detalles/mantenimiento-menus-detalles.component';
 import { MantenimientoPerfilComponent } from './components/mantenimientoPerfil/mantenimiento-perfil/mantenimiento-perfil.component';
 import { MantenimientoPerfilDetalleComponent } from './components/mantenimientoPerfil/mantenimiento-perfil-detalle/mantenimiento-perfil-detalle.component';
+import {IvyCarouselModule} from 'angular-responsive-carousel';
+import { OrdenarCompraComponent } from './components/ordenar-compra/ordenar-compra.component';
 
+//import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +44,7 @@ import { MantenimientoPerfilDetalleComponent } from './components/mantenimientoP
     MantenimientoMenusDetallesComponent,
     MantenimientoPerfilComponent,
     MantenimientoPerfilDetalleComponent,
+    OrdenarCompraComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,7 +54,8 @@ import { MantenimientoPerfilDetalleComponent } from './components/mantenimientoP
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    IvyCarouselModule
   ],
   providers: [
     AuthGuard,

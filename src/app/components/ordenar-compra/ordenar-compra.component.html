@@ -1,0 +1,63 @@
+<div style="width: 400px; margin: auto;">
+    <div *ngIf="productoActual" class="edit-form">
+      <h4>USUARIO</h4>
+      <form>
+        <div class="form-group">
+          <label for="nombreCliente">Nombre</label>
+          <input type="text" class="form-control" id="nombreCliente" [(ngModel)]="nombreCliente" name="nombreCliente" required/>
+        </div>
+        <div class="form-group">
+          <label for="apellidoCliente">Apellido</label>
+          <input type="text" class="form-control" id="apellidoCliente" [(ngModel)]="apellidoCliente" name="apellidoCliente" required/>
+        </div>
+        <div class="form-group">
+          <label for="dpi">DPI</label>
+          <input type="text" class="form-control" id="dpi" [(ngModel)]="dpi" name="dpi" required/>
+        </div>
+        <div class="form-group">
+          <label for="nit">NIT</label>
+          <input type="text" class="form-control" id="nit" [(ngModel)]="nit" name="nit" required/>
+        </div>
+        <div class="form-group">
+          <label for="direccion">Direccion</label>
+          <input type="text" class="form-control" id="direccion" [(ngModel)]="direccion" name="direccion" required/>
+        </div>
+        <div class="form-group">
+          <label for="telefono">Telefono</label>
+          <input type="text" class="form-control" id="telefono" [(ngModel)]="telefono" name="telefono" required/>
+        </div>
+        <div class="form-group">
+          <label for="correo">Correo</label>
+          <input type="text" class="form-control"  id="correo" [(ngModel)]="usuarioActual.correo" name="correo" required/>
+        </div>
+        <div class="form-group">
+          <label for="nombreProducto">Nombre del Producto</label>
+          <input type="text" class="form-control"  id="nombreProducto" [(ngModel)]="productoActual.nombreProducto" name="nombreProducto" readonly/>
+        </div>
+        <div class="form-group">
+          <label for="url">URL</label>
+          <input type="text" class="form-control"  id="url" [(ngModel)]="productoActual.url" name="url" readonly/>
+        </div>
+        <div class="form-group">
+          <label for="precioQtz">TOTAL</label>
+          <input type="text" class="form-control" id="precioQtz" [(ngModel)]="productoActual.precioQtz" name="precioQtz" readonly/>
+        </div>
+        
+
+      </form>
+  
+      <button class="badge badge-danger mr-2" (click)="eliminar()">
+        CANCELAR
+      </button>
+  
+      <button type="submit" class="badge badge-success" (click)="confirmar()">
+        CONFIRMAR ORDEN
+      </button>
+      <p>{{ mensaje }}</p>
+    </div>
+  
+    <div *ngIf="!productoActual">
+      <br />
+      <p>Producto no elegido</p>
+    </div>
+  </div>
